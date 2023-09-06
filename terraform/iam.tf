@@ -52,7 +52,21 @@ resource "aws_iam_policy" "rekognition_policy" {
         Effect   = "Allow",
         Action   = "s3:*Object",
         Resource = ["arn:aws:s3:::${aws_s3_bucket.imagemodbucketrki.bucket}/*"]
-      }
+      },
+      {
+            Sid = "ReadWriteTable",
+            Effect = "Allow",
+            Action = [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem"
+            ],
+            Resource = "arn:aws:dynamodb:*:*:table/ImageModerationResults"
+        }
     ]
   })
 }
