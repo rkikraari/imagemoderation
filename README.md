@@ -26,13 +26,26 @@ The project relies on certain tools/softwares/libraries that are listed below. T
 * Java
 * Maven
 * AWS (credentials configured using AWS cli)
+* Commitizen (It is the Python library that was used for versioning, conventional commits and for generating changelog.)
+   For details around the set up of commitizen and its usage check [here](commitizen-blog-url)
+* Python (only for Commitizen and pre-commit)
+* pre-commit
 
 
 ### Installation
 
+The steps to install the application to AWS from local machine are listed below.
+
 1. Clone the repo
-2. Go to the cloned project directory
-3. Go to terraform directory
+2. Go to the cloned project directory. 
+   ```
+   cd ImageModeration
+   ```
+3. Execute the maven command. It creates a fat jar which is used to by terraform for the Lambda deployment
+   ```
+   mvn clean package assembly:single
+   ```
+4. Go to terraform directory
    ```
    cd terraform
    ```
@@ -50,20 +63,18 @@ The project relies on certain tools/softwares/libraries that are listed below. T
    ```
 
 
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Once the deployment is successul, go to the AWS account. Go to the S3 bucket created as apart of the depoyment and upload an image you want to moderate. After the sucessfully uploading the image check the AWS Lambda logs in CloudWatch to see the results.
-
+Once the deployment is successul, go to the AWS account. Go to the S3 bucket created as part of the depoyment and upload an image you want to moderate. You can use the sample images added in the project for testing purposes. After sucessfully uploading the image check the AWS Lambda logs in CloudWatch to see the results. You can also look at DynamoDB to see the result in it.
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- Add the results to Dynamodb
 - A web frontend to upload the images
 - CI/CD pipeline to deploy instead of using local set up
+- Use terraform to manage CloudWatch and DynamoDB tables
 
 
 [Java-url]: https://nextjs.org/
@@ -71,3 +82,4 @@ Once the deployment is successul, go to the AWS account. Go to the S3 bucket cre
 [Commitizen-url]: https://pypi.org/project/commitizen/
 [AWS-url]: https://aws.amazon.com/
 [Maven-url]: https://maven.apache.org/
+[commitizen-blog-url]: https://medium.com/@iyerajiv/versioning-and-changelog-generation-using-commitizen-fc01a165f849
