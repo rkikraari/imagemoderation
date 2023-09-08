@@ -25,7 +25,7 @@ public class RekognitionApiHandlerTests {
         when(client.detectLabels(any(DetectLabelsRequest.class))).thenReturn(getDetectLabelsResponse());
 
         RekognitionApiHandler rekognitionApiHandler = new RekognitionApiHandler(client, s3Event.getRecords().get(0));
-        List<Label> labels = rekognitionApiHandler.getLabelsfromImage();
+        List<Label> labels = rekognitionApiHandler.getLabelsFromImageUsingDetectLabelsApi();
         assertFalse(labels.isEmpty());
         assertEquals("[Label(Name=Adult, Confidence=95.1)]", labels.toString());
     }

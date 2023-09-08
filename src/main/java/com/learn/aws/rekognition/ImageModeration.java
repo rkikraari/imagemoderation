@@ -24,7 +24,7 @@ public class ImageModeration implements RequestHandler<S3Event, String> {
             S3EventNotificationRecord s3Record = s3Event.getRecords().get(0);
             RekognitionApiHandler rekognitionApiHandler =
                     new RekognitionApiHandler(client, s3Record);
-            List<Label> labels = rekognitionApiHandler.getLabelsfromImage();
+            List<Label> labels = rekognitionApiHandler.getLabelsFromImageUsingDetectLabelsApi();
 
             DynamoDBPersistenceHandler dbPersistenceHandler = new DynamoDBPersistenceHandler(labels, s3Record);
             dbPersistenceHandler.persistImageModerationResults();
