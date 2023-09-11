@@ -49,15 +49,16 @@ The steps to install the application to AWS from local machine are listed below.
    ```
    cd terraform
    ```
-4. Execute the terraform init command
+5. Go to provider.tf file and modify the values of shared_config_files and shared_credentials_files. Ensure you have done aws configure locally.
+6. Execute the terraform init command
    ```
    terraform init
    ```
-5. Execute the terraform plan command
+7. Execute the terraform plan command
    ```
    terraform plan
    ```
-6. If happy with the plan, execute the terraform apply command
+8. If happy with the plan, execute the terraform apply command
    ```
    terraform apply
    ```

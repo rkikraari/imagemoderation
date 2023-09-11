@@ -1,7 +1,11 @@
 .DS_Store
 .vscode/
 target/
-terraform/.terraform.lock.hcl
-terraform/.terraform/
-terraform/terraform.tfstate
-terraform/terraform.tfstate.backup
+terraform/detectlabels/.terraform.lock.hcl
+terraform/detectlabels/.terraform/
+terraform/detectlabels/terraform.tfstate
+terraform/detectlabels/terraform.tfstate.backup
+terraform/detectmoderationlabels/.terraform.lock.hcl
+terraform/detectmoderationlabels/.terraform/
+terraform/detectmoderationlabels/terraform.tfstate
+terraform/detectmoderationlabels/terraform.tfstate.backup

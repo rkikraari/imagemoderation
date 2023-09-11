@@ -27,7 +27,7 @@ resource "aws_iam_policy" "rekognition_policy" {
     Statement = [
       {
         Action = [
-          "rekognition:DetectLabels",
+          "rekognition:DetectModerationLabels",
         ],
         Effect   = "Allow",
         Resource = "*"
@@ -45,13 +45,13 @@ resource "aws_iam_policy" "rekognition_policy" {
         Sid      = "ListObjectsInBucket",
         Effect   = "Allow",
         Action   = ["s3:ListBucket"],
-        Resource = ["arn:aws:s3:::${aws_s3_bucket.imagemodbucketrki.bucket}"]
+        Resource = ["arn:aws:s3:::${aws_s3_bucket.image_moderation_for_detect_moderation_labels_api.bucket}"]
       },
       {
         Sid      = "AllObjectActions",
         Effect   = "Allow",
         Action   = "s3:*Object",
-        Resource = ["arn:aws:s3:::${aws_s3_bucket.imagemodbucketrki.bucket}/*"]
+        Resource = ["arn:aws:s3:::${aws_s3_bucket.image_moderation_for_detect_moderation_labels_api.bucket}/*"]
       },
       {
             Sid = "ReadWriteTable",

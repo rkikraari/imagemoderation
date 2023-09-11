@@ -1,4 +1,4 @@
-package com.learn.aws.rekognition;
+package com.learn.aws.rekognition.api.detectlabels;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

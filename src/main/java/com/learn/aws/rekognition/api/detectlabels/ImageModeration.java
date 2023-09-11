@@ -1,4 +1,4 @@
-package com.learn.aws.rekognition;
+package com.learn.aws.rekognition.api.detectlabels;
 
 import java.util.List;
 import com.amazonaws.services.lambda.runtime.Context;
@@ -30,7 +30,7 @@ public class ImageModeration implements RequestHandler<S3Event, String> {
             dbPersistenceHandler.persistImageModerationResults();
 
         } catch (Exception e) {
-            log.error("Error while processing image using rekognition", e);
+            log.error("Error while moderating the image using rekognition", e);
         }
         return "Success";
     }
