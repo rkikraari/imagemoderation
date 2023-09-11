@@ -18,9 +18,9 @@ resource "aws_iam_role" "iam_for_lambda" {
   }
 }
 
-resource "aws_iam_policy" "rekognition_policy" {
-  name        = "rekognition-policy"
-  description = "Policy for accessing Rekognition and CloudWatch"
+resource "aws_iam_policy" "rekognition_lambda_policy" {
+  name        = "rekognition-lambda-policy"
+  description = "Policy for accessing Rekognition API, S3, DynamoDB and CloudWatch"
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -72,6 +72,6 @@ resource "aws_iam_policy" "rekognition_policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "rekognition_policy_attachment" {
-  policy_arn = aws_iam_policy.rekognition_policy.arn
+  policy_arn = aws_iam_policy.rekognition_lambda_policy.arn
   role       = aws_iam_role.iam_for_lambda.name
 }

@@ -14,7 +14,6 @@ resource "aws_lambda_function" "image_moderation_lambda_for_detect_labels_api" {
   tags = {
     environment : "poc"
   }
-
 }
 
 resource "aws_lambda_permission" "allow_bucket" {
