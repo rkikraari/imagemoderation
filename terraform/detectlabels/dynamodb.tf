@@ -1,7 +1,7 @@
 module "dynamodb_table" {
-  source   = "terraform-aws-modules/dynamodb-table/aws"
+  source = "terraform-aws-modules/dynamodb-table/aws"
 
-  name     = "ImageModerationResults"
+  name     = var.dynamodb-table-name
   hash_key = "id"
 
   attributes = [

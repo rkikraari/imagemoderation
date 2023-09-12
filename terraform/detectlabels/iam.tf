@@ -54,19 +54,19 @@ resource "aws_iam_policy" "rekognition_lambda_policy" {
         Resource = ["arn:aws:s3:::${aws_s3_bucket.image_moderation_for_detect_labels_api.bucket}/*"]
       },
       {
-            Sid = "ReadWriteTable",
-            Effect = "Allow",
-            Action = [
-                "dynamodb:BatchGetItem",
-                "dynamodb:GetItem",
-                "dynamodb:Query",
-                "dynamodb:Scan",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem"
-            ],
-            Resource = "arn:aws:dynamodb:*:*:table/ImageModerationResults"
-        }
+        Sid    = "ReadWriteTable",
+        Effect = "Allow",
+        Action = [
+          "dynamodb:BatchGetItem",
+          "dynamodb:GetItem",
+          "dynamodb:Query",
+          "dynamodb:Scan",
+          "dynamodb:BatchWriteItem",
+          "dynamodb:PutItem",
+          "dynamodb:UpdateItem"
+        ],
+        Resource = "arn:aws:dynamodb:*:*:table/ImageModerationResults"
+      }
     ]
   })
 }
